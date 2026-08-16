@@ -95,8 +95,16 @@ def test_check_device_no_match(skill):
 
 
 def test_check_device_expired_cache_triggers_rescan(skill):
+    """time.monotonic() has no fixed reference point across systems -
+    only DIFFERENCES in it are meaningful. A hardcoded 0.0 is NOT
+    reliably 'ancient': on a freshly-started container, monotonic()
+    itself can already be under CACHE_TTL_SECONDS, making 0.0 look
+    recent rather than expired (this genuinely broke in CI before
+    being fixed here - see commit history)."""
+    import time
     skill._cached_devices = FAKE_DEVICES
-    skill._cache_timestamp = 0.0  # ancient - definitely expired
+    from netscan_skill import CACHE_TTL_SECONDS
+    skill._cache_timestamp = time.monotonic() - (CACHE_TTL_SECONDS + 10)
     skill.speak_dialog = MagicMock()
     with patch("netscan_skill.scan_network", return_value=FAKE_DEVICES) as mock_scan:
         skill.handle_check_device(_msg(device="sony"))
