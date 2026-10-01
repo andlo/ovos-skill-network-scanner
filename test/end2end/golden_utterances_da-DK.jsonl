@@ -1,0 +1,6 @@
+{"utterance": "kan du se min printer", "lang": "da-DK", "skill_id": "ovos-skill-network-scanner.andlo", "intent_label": "check_device"}
+{"utterance": "er min router på netværket", "lang": "da-DK", "skill_id": "ovos-skill-network-scanner.andlo", "intent_label": "check_device"}
+{"utterance": "ser du en telefon", "lang": "da-DK", "skill_id": "ovos-skill-network-scanner.andlo", "intent_label": "check_device"}
+{"utterance": "scan netværket", "lang": "da-DK", "skill_id": "ovos-skill-network-scanner.andlo", "intent_label": "scan_network"}
+{"utterance": "hvad er der på mit netværk", "lang": "da-DK", "skill_id": "ovos-skill-network-scanner.andlo", "intent_label": "scan_network"}
+{"utterance": "hvad kan du se på netværket", "lang": "da-DK", "skill_id": "ovos-skill-network-scanner.andlo", "intent_label": "scan_network"}
